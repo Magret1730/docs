@@ -10,7 +10,13 @@
   "favicon": "/favicon.svg",
   "navigation": {
     "pages": [
-      "llms-explained"
+      {
+        "group": "Blog",
+        "pages": [
+          "blog/llms-explained",
+          "blog/junior-dev-job-hunt"
+        ]
+      }
     ]
   },
   "logo": {
