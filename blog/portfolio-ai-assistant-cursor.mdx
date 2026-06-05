@@ -1,0 +1,111 @@
+---
+title: "How I built an AI assistant for my portfolio using Cursor"
+description: "A personal account of learning to build with AI through TechNest, Gemini, and Cursor — and why understanding the code mattered more than generating it"
+---
+
+A few months ago, if you had asked me what I was working on, I would have talked about my portfolio — the layout, the projects, the responsive design. Solid work, but static. Visitors could look, click, and leave. I wanted something more: a way for people to actually interact with my site and get answers about my background, my skills, and the work I have done.
+
+That idea became an AI assistant powered by Gemini, built with help from Cursor. But the project was never really about adding a flashy feature to impress recruiters. It was about understanding — for myself — how AI-powered applications actually work, and what it means to build software alongside AI tools rather than despite them.
+
+I am Abiodun Oyedele. I go by Magret. I am a software engineer with a background in applied geology, which means I did not take a straight path into tech. I am currently learning AI through the TechNest Community, and this portfolio project was my way of turning classroom concepts into something real.
+
+## My perspective on AI before the course
+
+Before TechNest, my relationship with AI was mostly passive. I had used ChatGPT to debug a error message or rephrase an email. I read the headlines — AI is changing everything, developers will be replaced, learn AI or get left behind. But none of that felt connected to my daily work as a developer.
+
+Honestly, I was skeptical. AI seemed like something other people built or talked about on Twitter. It felt abstract, almost like a buzzword people attached to products to sound current. I did not see it as a tool I could integrate into my own applications. I certainly did not see it as something I could learn systematically.
+
+Part of that distance came from my background. Geology trained me to observe carefully, work with incomplete data, and draw conclusions from evidence. Software engineering taught me to be precise and logical. AI, in my mind, sat somewhere in between — powerful, but vague. I was not sure where I fit in.
+
+I also carried a quiet worry: if AI could write code, what did that mean for someone still building their career? Was learning to prompt a model a substitute for learning to engineer? I did not have clear answers. I just knew I was not ready to call myself someone who "works with AI."
+
+## How Chan Meng changed my view of AI
+
+That changed when I joined TechNest and started learning under **Chan Meng**.
+
+Chan Meng did not teach AI the way I expected. There were no dramatic predictions about the future. No pressure to adopt every new tool on the market. Instead, her classes were practical, structured, and grounded in how software actually gets built.
+
+She opened my eyes to something I had been missing: AI is not a separate world from software development. It is part of it. The same skills that make a good developer — breaking problems down, reading documentation, testing assumptions, iterating — are the same skills that make someone effective with AI tools.
+
+What stood out most was how she framed prompt engineering. I had assumed prompting meant typing clever questions into a chatbot. Chan Meng showed us that it is closer to specification writing. You define context, constraints, expected output, and failure modes. You iterate when the result is wrong. That sounded a lot like engineering to me.
+
+She also introduced us to AI workflows — how to use tools like Cursor not as a magic code generator, but as a collaborator in a process you still own. Plan first. Review always. Understand before you ship. She made AI feel approachable without pretending it was simple.
+
+I remember one session where she walked through building a small feature end to end: writing a prompt, reviewing the output, catching a subtle bug the model introduced, fixing it manually, then asking the model to explain what went wrong. That single demonstration did more for my confidence than weeks of reading articles. AI was not something to fear or worship. It was something to work with — carefully.
+
+Chan Meng's teaching gave me permission to experiment. Not because AI would do the work for me, but because I finally had a framework for using it responsibly.
+
+## Building an AI assistant for my portfolio
+
+Once I understood the basics — API integration, prompt design, handling responses — I decided to apply them to my portfolio.
+
+The concept was straightforward: a visitor lands on my site, opens a chat widget, and asks questions about my experience, projects, or background. The assistant would use Gemini to generate answers based on context I provided about myself.
+
+Getting there was less straightforward.
+
+I started in Cursor, which became my primary environment for this project. I described what I wanted — a chat interface, a backend route to call the Gemini API, environment variables for the API key — and Cursor helped me scaffold the initial structure. That first working draft took hours instead of days. I will not pretend that was not satisfying.
+
+Then the real work began.
+
+**API keys and environment variables.** I knew not to hardcode secrets, but I still managed to commit an `.env.example` with a placeholder that looked suspiciously like a real key. Cursor flagged it. I fixed it. I learned the lesson properly instead of glossing over it.
+
+**Rate limits.** Gemini, like most API services, throttles requests. During testing, I hit limits quickly by refreshing repeatedly. The chat would fail silently at first — no error message, just empty responses. I had to add proper error handling and user-facing feedback. Generated code gave me a starting point; understanding *why* requests failed is what made it production-ready.
+
+**Deployment.** My portfolio runs on a hosting platform that does not automatically know about server-side environment variables. Getting the API key configured in production took longer than building the feature locally. I misconfigured the variable name once and spent an evening wondering why the assistant worked on my machine but not live. Classic.
+
+**Understanding generated code.** Cursor produced React components and API route handlers that looked correct at a glance. Some of it was. Some of it used patterns I had not seen before — unnecessary abstractions, a dependency I did not need, an async handler that did not await properly. I learned to read every line before accepting it, the same way I would review a pull request from a junior developer I was mentoring.
+
+There were moments of frustration. One afternoon, the assistant returned garbled responses because my system prompt was too vague. Another time, a Cursor suggestion refactored my code in a way that broke the chat scroll behavior. I reverted, narrowed my prompt, and tried again.
+
+But there were also moments of genuine progress. When the assistant correctly answered a question about my geology-to-software transition — pulling from context I had written — I felt something shift. I had built a small AI application. Not a tutorial clone. Something connected to my own story.
+
+## Lessons learned from using Cursor
+
+Cursor changed how I think about development workflows, not just this one project.
+
+**I plan before I prompt.** I used to jump straight into asking for code. Now I write a short note: what the feature should do, what files are involved, what constraints exist. Better prompts produce better output. That sounds obvious, but it took practice.
+
+**I treat AI output as a first draft.** Cursor is fast. That speed is useful when you know what you are looking at. It is risky when you copy-paste without reading. I adopted a rule: no code enters my project until I can explain what it does.
+
+**I use AI for the boring parts.** Boilerplate, repetitive file structure, initial test scaffolds — Cursor handles these well. That frees my attention for architecture, edge cases, and the parts that require judgment.
+
+**I ask it to teach me, not just build.** When Cursor generated an API integration I partially understood, I asked it to walk through the flow step by step. That turned a black box into a learning moment. Some of my clearest understanding of async request handling came from debugging AI-generated code with AI as a tutor.
+
+**I stay in the loop for debugging.** When something broke, my instinct was to paste the error back into Cursor and ask for a fix. That works sometimes. Other times, it produces a fix that masks the root cause. I learned to reproduce the bug, read the stack trace myself, form a hypothesis, *then* use Cursor to validate or refine my approach.
+
+These habits did not come from a checklist. They came from mistakes — shipping something I did not fully understand, then spending twice as long fixing it.
+
+## Why understanding the code matters
+
+There is a version of this story where I prompt Cursor until the chat widget works, deploy it, and call the project done. That version would have been faster. It also would have left me unable to maintain, extend, or explain what I built.
+
+In an interview, a recruiter or engineer might ask: "How does your AI assistant handle API failures?" or "What happens if someone asks something outside your provided context?" If I only generated code without understanding it, I would stumble. Worse, I would not know what I did not know.
+
+Understanding AI-generated code matters for the same reason understanding any code matters:
+
+- **You can debug when things break** — and they will break, especially with external APIs
+- **You can make informed decisions** about security, cost, and user experience
+- **You can iterate** without starting from scratch every time
+- **You can speak honestly** about your work to recruiters, teammates, and future collaborators
+
+AI can accelerate the writing of code. It cannot replace the judgment about whether that code is correct, safe, or appropriate for the problem. That judgment still belongs to the engineer.
+
+For me, coming from geology, this felt familiar. You can use sophisticated instruments to analyze rock samples, but if you do not understand the principles behind the readings, you draw the wrong conclusions. The tool enhances the scientist. It does not replace scientific thinking.
+
+## Final thoughts
+
+Building an AI assistant for my portfolio did not make me an AI expert. I am still learning — still in TechNest, still asking basic questions, still making mistakes. But it changed something important in how I approach both learning and building.
+
+I no longer see AI as a threat to my relevance or a shortcut I should feel guilty about using. I see it as part of the modern developer's toolkit — powerful when used with intention, dangerous when used without understanding.
+
+Chan Meng's classes gave me the foundation. Cursor gave me speed. The portfolio project gave me proof — to myself — that I could connect the two.
+
+If you are a fellow learner wondering whether to build something with AI, my advice is simple: pick a small, personal project and build it end to end. Not to impress anyone. To understand. You will hit API limits, deployment snags, and code you did not write yourself. Work through them. The growth is in that process, not in the demo.
+
+I started this journey wanting a smarter portfolio. I ended up with a clearer sense of what kind of engineer I want to become — someone who uses every tool available, but never stops understanding what is happening underneath.
+
+That feels like progress.
+
+<Card title="Learn the fundamentals" icon="brain" href="/blog/llms-explained">
+  If you are curious about how the AI behind tools like Gemini actually works, I found this guide helpful while building my assistant.
+</Card>
