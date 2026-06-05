@@ -1,0 +1,285 @@
+---
+title: "LLMs explained: where AI started and how we got here"
+description: "A beginner-friendly guide to the history of artificial intelligence and how large language models work today"
+---
+
+If you have used ChatGPT, Claude, or Gemini, you have already interacted with a **large language model** (LLM). These tools feel almost magical — they write essays, explain code, translate languages, and hold conversations. But LLMs did not appear overnight. They are the latest chapter in a story that began decades ago, when researchers first asked whether machines could think.
+
+This guide walks you through that story in plain language. No PhD required.
+
+## What is artificial intelligence?
+
+**Artificial intelligence (AI)** is the field of computer science focused on building systems that can perform tasks that normally require human intelligence — things like recognizing speech, making decisions, playing games, or understanding language.
+
+There are two broad ways to think about AI:
+
+- **Narrow AI** — systems designed for one specific task (like recommending movies or detecting spam)
+- **General AI** — a hypothetical machine with human-level reasoning across many domains (this does not exist yet)
+
+Every LLM you use today is narrow AI. It is very good at language, but it cannot drive a car or perform surgery on its own.
+
+<Note>
+  When people say "AI" in everyday conversation, they usually mean modern machine learning systems — especially LLMs. The term covers a much wider range of ideas and techniques than that.
+</Note>
+
+## The beginning: can machines think?
+
+The idea of intelligent machines is ancient — Greek myths describe mechanical servants, and philosophers debated whether reasoning could be reduced to rules. But AI as a formal field began in the mid-20th century.
+
+### Alan Turing and the imitation game (1950)
+
+British mathematician **Alan Turing** asked a provocative question: *"Can machines think?"* Rather than define "thinking," he proposed a practical test. If a human judge chatting via text cannot tell whether they are talking to a person or a machine, the machine passes what we now call the **Turing Test**.
+
+Turing also showed that a simple theoretical device — the **Turing machine** — could compute anything computable. That idea became the foundation of modern computing and, eventually, of AI research.
+
+### The Dartmouth workshop (1956)
+
+In the summer of 1956, a group of researchers — including John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon — gathered at Dartmouth College. They coined the term **"artificial intelligence"** and declared that "every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it."
+
+They were optimistic. Very optimistic. They believed human-level AI might arrive within a generation. It took much longer.
+
+## The first era: rules, logic, and expert systems
+
+Early AI researchers took a **symbolic** approach. They tried to encode human knowledge as explicit rules and logical statements.
+
+### How symbolic AI worked
+
+Imagine teaching a computer to diagnose an illness by writing thousands of if-then rules:
+
+```
+IF patient has fever AND cough AND fatigue
+THEN consider influenza
+```
+
+Programs like **MYCIN** (1970s) could diagnose bacterial infections as well as human experts in some cases. These **expert systems** were useful in narrow domains — medicine, chemistry, engineering — but they had a fatal weakness: someone had to manually write every rule.
+
+The world is messy. Language is ambiguous. Common sense is hard to codify. Symbolic AI struggled outside carefully defined problems.
+
+### Early language programs
+
+Even language got the rules treatment. **ELIZA** (1966), created by Joseph Weizenbaum, mimicked a therapist by pattern-matching user input and reflecting it back:
+
+> **User:** I am feeling sad today.  
+> **ELIZA:** Why do you think you are feeling sad today?
+
+ELIZA fooled some people into believing it understood them. It did not. It was a clever trick — and an early hint that language would be harder than it looked.
+
+## AI winters: when progress stalled
+
+Research funding and public enthusiasm swung back and forth. Periods of hype followed by disappointment are called **AI winters**.
+
+| Era | What happened |
+| --- | --- |
+| **1970s–80s** | Expert systems showed promise but were expensive to maintain. Promised breakthroughs did not materialize. Funding dried up. |
+| **Late 1980s–90s** | Japan's Fifth Generation project and other big bets underdelivered. Another downturn followed. |
+
+Each winter taught the field something important: hard-coding intelligence does not scale. You cannot write enough rules to capture all of human knowledge.
+
+## A new approach: learning from data
+
+While symbolic AI dominated headlines, a quieter approach was gaining ground: **machine learning (ML)**.
+
+Instead of programming rules by hand, you give the computer **examples** and let it find patterns on its own.
+
+### A simple analogy
+
+Teaching a child to recognize cats:
+
+- **Symbolic approach:** Describe every feature — whiskers, four legs, tail, fur, meows...
+- **Machine learning approach:** Show thousands of labeled photos. The child (or model) learns what cats look like from experience.
+
+This shift — from *programming* to *learning* — is the single most important idea behind modern AI.
+
+### Neural networks: brains as inspiration
+
+**Neural networks** are computing systems loosely inspired by the brain. They contain layers of connected **nodes** (like simplified neurons). Each connection has a **weight** that adjusts during training.
+
+```
+Input layer  →  Hidden layers  →  Output layer
+   (data)         (patterns)        (prediction)
+```
+
+When you show a network enough labeled examples — say, photos marked "cat" or "not cat" — it gradually adjusts its weights to make better predictions. This process is called **training**.
+
+Neural networks are not new. Researchers proposed them as early as the 1940s and 1950s. But for decades, they were too slow and too data-hungry to be practical.
+
+## The deep learning revolution (2010s)
+
+Three forces converged around 2010 and changed everything:
+
+1. **Big data** — the internet generated massive datasets (text, images, video)
+2. **GPUs** — graphics processors turned out to be excellent at the parallel math neural networks need
+3. **Better algorithms** — techniques like backpropagation, dropout, and ReLU activations made training deeper networks feasible
+
+**Deep learning** refers to neural networks with many layers — "deep" stacks that can learn increasingly abstract patterns.
+
+### Landmark moments
+
+| Year | Breakthrough | Why it mattered |
+| --- | --- | --- |
+| **2012** | AlexNet wins ImageNet | Deep learning beat traditional methods at image recognition by a wide margin |
+| **2016** | AlphaGo beats Lee Sedol | Neural networks mastered a game once thought too complex for machines |
+| **2017** | "Attention Is All You Need" | Researchers introduced the **Transformer** architecture — the engine behind modern LLMs |
+
+Each breakthrough proved that learning from data at scale could solve problems that rule-based systems never could.
+
+## Transformers: the architecture behind LLMs
+
+Before Transformers, language models processed text one word at a time, sequentially. That was slow and made it hard to capture long-range relationships in a sentence.
+
+The 2017 paper *"Attention Is All You Need"* (by researchers at Google) introduced a new design: the **Transformer**.
+
+### What is attention?
+
+**Attention** lets a model look at all the words in a sentence at once and decide which ones matter most for understanding each part.
+
+Consider the sentence: *"The animal didn't cross the street because it was too tired."*
+
+Which word does **"it"** refer to — the animal or the street? Attention mechanisms help the model weigh context and resolve that ambiguity.
+
+Transformers stack many attention layers, each learning different kinds of relationships — grammar, meaning, facts, style.
+
+<Tip>
+  You do not need to understand the math behind attention to use LLMs effectively. What matters is the intuition: Transformers excel at finding patterns in sequences of text.
+</Tip>
+
+## What is a large language model?
+
+A **large language model (LLM)** is a neural network — almost always a Transformer — trained on enormous amounts of text to predict what comes next.
+
+That training objective sounds simple. The results are not.
+
+### Training in three stages
+
+<Steps>
+  <Step title="Pre-training">
+    The model reads billions of sentences from books, websites, code, and other text sources. At each step, it tries to predict the next word (technically, the next **token** — a small chunk of text). When it guesses wrong, it adjusts its weights. Over time, it internalizes grammar, facts, reasoning patterns, and writing styles.
+  </Step>
+  <Step title="Fine-tuning">
+    The pre-trained model is further trained on curated datasets — often with human feedback — to follow instructions, be helpful, and avoid harmful outputs. This is where a raw text predictor becomes something you can actually chat with.
+  </Step>
+  <Step title="Alignment">
+    Additional techniques (like **RLHF** — reinforcement learning from human feedback) teach the model to prefer responses that humans rate as useful, accurate, and safe.
+  </Step>
+</Steps>
+
+### Why "large"?
+
+The "large" in LLM refers to two things:
+
+- **Parameters** — the adjustable weights inside the model. GPT-3 has 175 billion; newer models have trillions across multiple components.
+- **Training data** — terabytes of text spanning much of what humanity has written online.
+
+More parameters and more data generally mean better language ability — though with diminishing returns and rising costs.
+
+## How an LLM generates a response
+
+When you type a prompt, here is what happens at a high level:
+
+1. **Tokenization** — your text is split into tokens (words or sub-word pieces)
+2. **Context processing** — the Transformer reads your tokens plus any prior conversation, using attention to build an internal representation
+3. **Next-token prediction** — the model calculates probabilities for every possible next token
+4. **Sampling** — one token is selected (not always the highest-probability one — randomness makes responses varied and creative)
+5. **Repeat** — the chosen token is appended, and steps 2–4 repeat until the model produces a stop signal or hits a length limit
+
+The model is not searching a database or looking up facts in real time during this process (unless it is connected to tools like web search). It is **generating** text one token at a time based on patterns learned during training.
+
+<Note>
+  This is why LLMs can **hallucinate** — confidently stating things that are not true. They are optimized to produce plausible-sounding text, not verified facts.
+</Note>
+
+## From GPT to the AI boom
+
+The public LLM era began in earnest with OpenAI's **GPT** (Generative Pre-trained Transformer) series:
+
+| Model | Year | Significance |
+| --- | --- | --- |
+| **GPT-2** | 2019 | Showed that large models could generate coherent long-form text |
+| **GPT-3** | 2020 | 175B parameters; few-shot learning — the model could follow examples in the prompt without retraining |
+| **ChatGPT** | 2022 | GPT-3.5 with conversational fine-tuning; reached 100 million users in two months |
+| **GPT-4 and beyond** | 2023+ | Multimodal input, stronger reasoning, longer context windows |
+
+OpenAI was not alone. Google (Gemini, PaLM), Anthropic (Claude), Meta (Llama), Mistral, and many others built their own LLMs — some proprietary, some open-source.
+
+The 2022–2024 period is often called the **generative AI boom**. LLMs moved from research labs to everyday tools used by hundreds of millions of people.
+
+## What LLMs are good at (and what they are not)
+
+Understanding strengths and limits helps you use these tools well.
+
+### Strengths
+
+- **Writing and editing** — drafts, summaries, translations, tone adjustments
+- **Explaining concepts** — breaking down complex topics at different levels
+- **Coding assistance** — generating boilerplate, debugging, explaining errors
+- **Brainstorming** — generating ideas, outlines, and alternatives quickly
+- **Pattern recognition** — finding structure in messy text, logs, or documents
+
+### Limitations
+
+- **Factual accuracy** — models can invent citations, dates, and statistics
+- **Real-time knowledge** — training data has a cutoff date unless the model can browse the web
+- **Math and logic** — improved but still unreliable for precise calculation without tools
+- **Consistency** — the same question can yield different answers
+- **No true understanding** — models manipulate statistical patterns; they do not "know" things the way humans do
+
+<Warning>
+  Treat LLM output as a first draft, not a final authority. Verify important facts, especially in medical, legal, or financial contexts.
+</Warning>
+
+## Key concepts glossary
+
+| Term | Definition |
+| --- | --- |
+| **Token** | A small unit of text (a word, part of a word, or punctuation) that the model processes |
+| **Context window** | The maximum amount of text (in tokens) the model can consider at once |
+| **Prompt** | The input you give the model — a question, instruction, or conversation |
+| **Hallucination** | When a model generates false or fabricated information confidently |
+| **Fine-tuning** | Additional training on specific data to specialize a model |
+| **RAG** | Retrieval-Augmented Generation — connecting an LLM to an external knowledge base |
+| **Agent** | An LLM that can use tools (search, code execution, APIs) to take actions |
+| **Open-weight vs. closed** | Open models share their weights for anyone to run; closed models are API-only |
+
+## Where AI is heading
+
+The field is moving fast. A few directions to watch:
+
+- **Multimodal models** — systems that understand text, images, audio, and video together
+- **Smaller, efficient models** — running capable AI on phones and laptops instead of massive data centers
+- **Agents and tool use** — LLMs that do not just talk but browse the web, write code, and execute tasks
+- **Reasoning models** — architectures that spend more compute "thinking" before answering (like OpenAI's o-series and DeepSeek-R1)
+- **Regulation and safety** — governments and companies grappling with bias, misinformation, copyright, and job impact
+
+The history of AI is a cycle of ambition, setback, and breakthrough. Symbolic AI taught us that knowledge is hard to codify. Machine learning showed us that data can substitute for hand-written rules. Deep learning and Transformers proved that scale — more data, more compute, bigger models — unlocks emergent abilities no one explicitly programmed.
+
+LLMs are not the end of that story. They are the most visible chapter so far.
+
+## The big picture
+
+Here is the arc in one timeline:
+
+```
+1950  Turing asks "Can machines think?"
+1956  "Artificial intelligence" is named at Dartmouth
+1960s  ELIZA, early neural networks, symbolic reasoning
+1970s  Expert systems rise; first AI winter
+1980s  Expert systems peak; second AI winter looms
+1990s  Machine learning gains ground quietly
+2012  Deep learning wins ImageNet
+2017  Transformers are invented
+2019  GPT-2 shows scalable text generation
+2022  ChatGPT brings LLMs to the mainstream
+2024+ Multimodal models, agents, and open-source LLMs proliferate
+```
+
+If you are new to AI, you do not need to memorize every milestone. Hold onto three ideas:
+
+1. **AI evolved from rules to learning** — modern systems improve by seeing data, not by being told every rule.
+2. **LLMs predict text** — their power comes from scale and the Transformer architecture, not from a database of facts.
+3. **You are living through a major transition** — the same way the web changed how we find information, LLMs are changing how we create and interact with knowledge.
+
+The best way to understand LLMs is to use them — and to stay curious about how they work under the hood. You are already on that path.
+
+<Card title="Try it yourself" icon="message-bot" href="https://chat.openai.com">
+  Open ChatGPT, Claude, or Gemini and ask it to explain a concept you are learning. Compare the answer to what you now know about how the model works.
+</Card>

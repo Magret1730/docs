@@ -16,6 +16,12 @@
           "index",
           "quickstart"
         ]
+      },
+      {
+        "group": "Learn",
+        "pages": [
+          "llms-explained"
+        ]
       }
     ],
     "global": {
