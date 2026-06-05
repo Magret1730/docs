@@ -14,8 +14,7 @@
         "group": "Blog",
         "pages": [
           "blog/llms-explained",
-          "blog/junior-dev-job-hunt",
-          "blog/portfolio-ai-assistant-cursor"
+          "blog/junior-dev-job-hunt"
         ]
       }
     ]
